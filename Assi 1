@@ -1,0 +1,56 @@
+class Player {
+    String name;
+    int age;
+    String sport;
+
+    Player(String name, int age, String sport) {
+        this.name = name;
+        this.age = age;
+        this.sport = sport;
+    }
+
+    void display() {
+        System.out.println("Player: " + name + ", Age: " + age + ", Sport: " + sport);
+    }
+}
+
+class Coach {
+    String name;
+    String team;
+
+    Coach(String name, String team) {
+        this.name = name;
+        this.team = team;
+    }
+
+    void display() {
+        System.out.println("Coach: " + name + ", Team: " + team);
+    }
+}
+
+class Match {
+    String team1, team2;
+    String date;
+
+    Match(String team1, String team2, String date) {
+        this.team1 = team1;
+        this.team2 = team2;
+        this.date = date;
+    }
+
+    void display() {
+        System.out.println("Match: " + team1 + " vs " + team2 + " on " + date);
+    }
+}
+
+public class SportsManagementSystem {
+    public static void main(String[] args) {
+        Player p = new Player("Virat", 34, "Cricket");
+        Coach c = new Coach("Rahul", "India");
+        Match m = new Match("India", "Australia", "10-06-2026");
+
+        p.display();
+        c.display();
+        m.display();
+    }
+}
