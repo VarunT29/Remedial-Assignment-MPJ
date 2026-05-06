@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+class Booking {
+    String movieName;
+    int availableSeats;
+
+    Booking(String movieName, int availableSeats) {
+        this.movieName = movieName;
+        this.availableSeats = availableSeats;
+    }
+
+    void bookTickets(int seats) throws Exception {
+        if (seats > availableSeats) {
+            throw new Exception("Not enough seats available!");
+        } else {
+            availableSeats -= seats;
+            System.out.println("Booking successful for " + seats + " seats.");
+        }
+    }
+
+    void display() {
+        System.out.println("Movie: " + movieName + ", Available Seats: " + availableSeats);
+    }
+}
+
+public class MovieTicketBookingSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Booking b = new Booking("Avengers", 50);
+
+        b.display();
+
+        System.out.print("Enter number of seats to book: ");
+        int seats = sc.nextInt();
+
+        try {
+            b.bookTickets(seats);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        b.display();
+        sc.close();
+    }
+}
