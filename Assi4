@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+class Student {
+    String name;
+    int totalClasses;
+    int attendedClasses;
+
+    Student(String name, int totalClasses, int attendedClasses) {
+        this.name = name;
+        this.totalClasses = totalClasses;
+        this.attendedClasses = attendedClasses;
+    }
+
+    double calculatePercentage() {
+        return (attendedClasses * 100.0) / totalClasses;
+    }
+
+    void display() {
+        System.out.println("Student: " + name);
+        System.out.println("Attendance: " + calculatePercentage() + "%");
+    }
+}
+
+public class AttendanceManagementSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter total classes: ");
+        int total = sc.nextInt();
+
+        System.out.print("Enter attended classes: ");
+        int attended = sc.nextInt();
+
+        Student s = new Student(name, total, attended);
+        s.display();
+
+        sc.close();
+    }
+}
